@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using FinancialGoal.Application.Features.TargetSaving.Commands.CreateTargetSaving;
 using FinancialGoal.Application.Features.TargetSaving.Commands.UpdateTargetSaving;
-using FinancialGoal.Application.Features.TargetSaving.Queries.GetTargetSavingList;
+using FinancialGoal.Application.Features.TargetSaving.Queries.Common;
 using FinancialGoal.Domain.Entitie;
 
 namespace FinancialGoal.Application.Mappings

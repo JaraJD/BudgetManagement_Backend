@@ -19,6 +19,20 @@ namespace FinancialGoal.Domain.Entitie
 
 		public string? StateSaving { get; set; }
 
-
+		public void SetState()
+		{
+			if(StartDate < DateTime.Now && StartDate < EndDate)
+			{
+				StateSaving = "in progress";
+			}
+			if (StartDate > DateTime.Now && StartDate< EndDate)
+			{
+				StateSaving = "not started";
+			}
+			if (StartDate < DateTime.Now && EndDate < DateTime.Now && StartDate < EndDate)
+			{
+				StateSaving = "completed";
+			}
+		} 
 	}
 }

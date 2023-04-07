@@ -18,6 +18,7 @@ namespace FinancialGoal.Application.Features.TargetSaving.Commands.CreateTargetS
         public async Task<int> Handle(CreateTargetSavingCommand request, CancellationToken cancellationToken)
         {
             var targetSavingEntity = _mapper.Map<Domain.Entitie.TargetSaving>(request);
+            targetSavingEntity.SetState();
             var newSaving = await _targetSavingRepository.CreateAsync(targetSavingEntity);
 
             return newSaving.Id;

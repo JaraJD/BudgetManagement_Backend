@@ -8,7 +8,6 @@ namespace FinancialGoal.Application.Contracts.Persistence
 		Task<T> CreateAsync(T entity);
 		Task<T> UpdateAsync(T entity);
 		Task DeleteAsync(T entity);
-
 		Task<T> GetByIdAsync(int id);
 
 

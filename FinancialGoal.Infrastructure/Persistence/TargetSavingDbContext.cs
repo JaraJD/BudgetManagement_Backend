@@ -10,18 +10,21 @@ namespace FinancialGoal.Infrastructure.Persistence
         {
         }
 
-        public override int SaveChanges()
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            foreach (var item in ChangeTracker.Entries()
-                .Where(e => e.State == EntityState.Deleted &&
-                e.Metadata.GetProperties().Any(x => x.Name == "IsDeleted")))
-            {
-                item.State = EntityState.Unchanged;
-                item.CurrentValues["IsDeleted"] = true;
-            }
+			foreach (var entry in ChangeTracker.Entries<BaseDomainModel>())
+			{
+				switch (entry.State)
+				{
+					case EntityState.Added:
+						entry.Entity.IsDeleted = false;
+						break;
+				}
+			}
 
-            return base.SaveChanges();
-        }
+			return base.SaveChangesAsync(cancellationToken);
+		}
+
         public DbSet<TargetSaving>? Target_Saving { get; set; }
 
     }

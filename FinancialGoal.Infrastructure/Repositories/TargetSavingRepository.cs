@@ -11,9 +11,14 @@ namespace FinancialGoal.Infrastructure.Repositories
 		{
 
 		}
-		public async Task<IEnumerable<TargetSaving>> GetTargetSavingByState(string state)
+		public async Task<IEnumerable<TargetSaving>> GetTargetSavingByState(string idUser, string state)
 		{
-			return await _context.Target_Saving!.Where(t => t.StateSaving == state).ToListAsync();
+			return await _context.Target_Saving!.Where(t => t.StateSaving == state && t.IdUser == idUser && t.IsDeleted == false).ToListAsync();
+		}
+
+		public async Task<IEnumerable<TargetSaving>> GetTargetSavingByUser(string idUser)
+		{
+			return await _context.Target_Saving!.Where(t => t.IdUser == idUser && t.IsDeleted == false).ToListAsync();
 		}
 	}
 }
