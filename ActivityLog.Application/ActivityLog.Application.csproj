@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\" />
+    <Folder Include="Mappings\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ActivityLog.Domain\ActivityLog.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

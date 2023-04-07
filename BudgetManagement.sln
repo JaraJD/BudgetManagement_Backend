@@ -57,13 +57,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{760760
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{6EED3642-BF51-4C4A-9ECA-366C2FE4DDA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityLog.API", "ActivityLog.API\ActivityLog.API.csproj", "{BE77A2BE-A156-40C0-8DDB-519AFCD61014}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivityLog.API", "ActivityLog.API\ActivityLog.API.csproj", "{BE77A2BE-A156-40C0-8DDB-519AFCD61014}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityLog.Application", "ActivityLog.Application\ActivityLog.Application.csproj", "{F0225D9E-5789-4352-9799-6A18158D6BB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivityLog.Application", "ActivityLog.Application\ActivityLog.Application.csproj", "{F0225D9E-5789-4352-9799-6A18158D6BB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityLog.Domain", "ActivityLog.Domain\ActivityLog.Domain.csproj", "{5CECB80C-CE2B-4970-8169-DCB08D590C43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivityLog.Domain", "ActivityLog.Domain\ActivityLog.Domain.csproj", "{5CECB80C-CE2B-4970-8169-DCB08D590C43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityLog.Infrastructure", "ActivityLog.Infrastructure\ActivityLog.Infrastructure.csproj", "{6F1AB910-AA88-4511-91DD-9736DA729982}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivityLog.Infrastructure", "ActivityLog.Infrastructure\ActivityLog.Infrastructure.csproj", "{6F1AB910-AA88-4511-91DD-9736DA729982}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

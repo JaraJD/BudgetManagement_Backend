@@ -19,6 +19,7 @@ namespace ActivityLog.Domain.Entities
 		public int BugetId { get; set; }
 
 		public virtual Category? Category { get; set; }
+
 		public virtual Budget? Budget { get; set; }
 	}
 }
