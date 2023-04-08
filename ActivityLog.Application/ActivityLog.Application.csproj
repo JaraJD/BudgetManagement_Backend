@@ -7,14 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\BudgetExpense\Commands\CreateBudgetExpense\" />
-    <Folder Include="Features\BudgetExpense\Commands\DeleteBudgetExpense\" />
-    <Folder Include="Features\BudgetExpense\Commands\UpdateBudgetExpense\" />
     <Folder Include="Features\BudgetExpense\Queries\" />
-    <Folder Include="Features\Budget\Queries\Common\" />
-    <Folder Include="Features\Budget\Queries\GetBudgetUser\" />
-    <Folder Include="Features\Budget\Queries\GetBudgetDate\" />
-    <Folder Include="Features\Budget\Queries\GetBudgetName\" />
     <Folder Include="Features\Transaction\Commands\CreateTransaction\" />
     <Folder Include="Features\Transaction\Commands\DeleteTransaction\" />
     <Folder Include="Features\Transaction\Commands\UpdateTransaction\" />
@@ -23,7 +16,6 @@
     <Folder Include="Features\Transaction\Queries\GetTransactionUser\" />
     <Folder Include="Features\Transaction\Queries\GetTransactionType\" />
     <Folder Include="Features\Transaction\Queries\GetTransactionCategory\" />
-    <Folder Include="Mappings\" />
   </ItemGroup>
 
   <ItemGroup>
