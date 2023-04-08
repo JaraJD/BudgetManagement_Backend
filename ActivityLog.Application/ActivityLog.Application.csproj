@@ -7,8 +7,31 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\" />
+    <Folder Include="Features\BudgetExpense\Commands\CreateBudgetExpense\" />
+    <Folder Include="Features\BudgetExpense\Commands\DeleteBudgetExpense\" />
+    <Folder Include="Features\BudgetExpense\Commands\UpdateBudgetExpense\" />
+    <Folder Include="Features\BudgetExpense\Queries\" />
+    <Folder Include="Features\Budget\Queries\Common\" />
+    <Folder Include="Features\Budget\Queries\GetBudgetUser\" />
+    <Folder Include="Features\Budget\Queries\GetBudgetDate\" />
+    <Folder Include="Features\Budget\Queries\GetBudgetName\" />
+    <Folder Include="Features\Transaction\Commands\CreateTransaction\" />
+    <Folder Include="Features\Transaction\Commands\DeleteTransaction\" />
+    <Folder Include="Features\Transaction\Commands\UpdateTransaction\" />
+    <Folder Include="Features\Transaction\Queries\Common\" />
+    <Folder Include="Features\Transaction\Queries\GetTransactionDate\" />
+    <Folder Include="Features\Transaction\Queries\GetTransactionUser\" />
+    <Folder Include="Features\Transaction\Queries\GetTransactionType\" />
+    <Folder Include="Features\Transaction\Queries\GetTransactionCategory\" />
     <Folder Include="Mappings\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.5.2" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
+    <PackageReference Include="MediatR" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>
