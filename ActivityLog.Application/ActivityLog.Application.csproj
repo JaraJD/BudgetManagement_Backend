@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Transaction\Commands\UpdateTransaction\" />
-    <Folder Include="Features\Transaction\Queries\Common\" />
     <Folder Include="Features\Transaction\Queries\GetTransactionDate\" />
     <Folder Include="Features\Transaction\Queries\GetTransactionUser\" />
     <Folder Include="Features\Transaction\Queries\GetTransactionType\" />
