@@ -26,6 +26,10 @@ namespace ActivityLog.Application.Features.Budget.Commands.UpdateBudget
 			RuleFor(p => p.Balance)
 				.NotEmpty().WithMessage("{Balance} no puede estar vacio")
 				.NotNull().WithMessage("{Balance} no puede ser null");
+
+			RuleFor(p => p.State)
+					.NotEmpty().WithMessage("{State} no puede estar vacio")
+					.NotNull().WithMessage("{State} no puede ser null");
 		}
 	}
 }

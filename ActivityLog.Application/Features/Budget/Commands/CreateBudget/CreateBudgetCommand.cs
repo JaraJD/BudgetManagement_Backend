@@ -12,5 +12,7 @@ namespace ActivityLog.Application.Features.Budget.Commands.CreateBudget
 		public DateTime TargetMonth { get; set; }
 
 		public decimal? Balance { get; set; }
+
+		public string State = string.Empty;
 	}
 }

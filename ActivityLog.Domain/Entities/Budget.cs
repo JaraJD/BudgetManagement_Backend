@@ -14,6 +14,8 @@ namespace ActivityLog.Domain.Entities
 
 		public decimal MonthlyTotal { get; set; }
 
+		public string? State { get; set; }
+
 		public virtual List<BudgetExpense>? BudgetExpense { get; set; }
 	}
 }
