@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ActivityLog.Domain.Entities;
+using MediatR;
 
 namespace ActivityLog.Application.Features.BudgetExpense.Commands.UpdateBudgetExpense
 {
-	public class UpdateBudgetExpenseCommand
+	public class UpdateBudgetExpenseCommand : IRequest<string>
 	{
+		public int Id { get; set; }
+
+		public decimal Amount { get; set; }
+
+		public string? Description { get; set; }
+
+		public int CategoryId { get; set; }
+
 	}
 }
