@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\BudgetExpense\Queries\" />
     <Folder Include="Features\Transaction\Commands\CreateTransaction\" />
     <Folder Include="Features\Transaction\Commands\DeleteTransaction\" />
     <Folder Include="Features\Transaction\Commands\UpdateTransaction\" />

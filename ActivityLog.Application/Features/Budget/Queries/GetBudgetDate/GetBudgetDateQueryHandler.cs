@@ -1,6 +1,4 @@
-﻿
-
-using ActivityLog.Application.Contracts.Persistence;
+﻿using ActivityLog.Application.Contracts.Persistence;
 using ActivityLog.Application.Features.Budget.Queries.Common;
 using AutoMapper;
 using MediatR;

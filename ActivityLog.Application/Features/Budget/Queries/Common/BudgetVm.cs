@@ -17,8 +17,8 @@ namespace ActivityLog.Application.Features.Budget.Queries.Common
 
 		public decimal MonthlyTotal { get; set; }
 
-		public string? State { get; set; };
+		public string? State { get; set; }
 
-		public virtual List<BudgetExpense>? BudgetExpense { get; set; }
+		public virtual List<Domain.Entities.BudgetExpense>? BudgetExpense { get; set; }
 	}
 }
