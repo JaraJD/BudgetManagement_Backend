@@ -15,7 +15,7 @@ namespace ActivityLog.Application.Features.Transaction.Queries.Common
 
 		public int CategoryId { get; set; }
 
-		public int? BugetId { get; set; }
+		public int? BudgetId { get; set; }
 
 		public virtual Category? Category { get; set; }
 

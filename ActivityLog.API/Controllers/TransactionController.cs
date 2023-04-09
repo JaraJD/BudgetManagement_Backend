@@ -50,7 +50,7 @@ namespace ActivityLog.API.Controllers
 			return await _mediator.Send(command);
 		}
 
-		[HttpGet("{idUser}/{category}", Name = "GetTransactionCategory")]
+		[HttpGet("Category/{idUser}/{category}", Name = "GetTransactionCategory")]
 		[ProducesResponseType(typeof(IEnumerable<TransactionVm>), (int)HttpStatusCode.OK)]
 		public async Task<ActionResult<IEnumerable<TransactionVm>>> GetTransactionByCategory(string idUser, int category)
 		{
@@ -59,7 +59,7 @@ namespace ActivityLog.API.Controllers
 			return Ok(savings);
 		}
 
-		[HttpGet("{idUser}/{date}", Name = "GetTransactionDate")]
+		[HttpGet("Date/{idUser}/{date}", Name = "GetTransactionDate")]
 		[ProducesResponseType(typeof(IEnumerable<TransactionVm>), (int)HttpStatusCode.OK)]
 		public async Task<ActionResult<IEnumerable<TransactionVm>>> GetTransactionByDate(string idUser, DateTime date)
 		{
@@ -68,7 +68,7 @@ namespace ActivityLog.API.Controllers
 			return Ok(savings);
 		}
 
-		[HttpGet("{idUser}/{type}", Name = "GetTransactionType")]
+		[HttpGet("Type/{idUser}/{type}", Name = "GetTransactionType")]
 		[ProducesResponseType(typeof(IEnumerable<TransactionVm>), (int)HttpStatusCode.OK)]
 		public async Task<ActionResult<IEnumerable<TransactionVm>>> GetTransactionByType(string idUser, string type)
 		{

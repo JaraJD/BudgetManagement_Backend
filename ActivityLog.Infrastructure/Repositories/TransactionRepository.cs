@@ -19,8 +19,7 @@ namespace ActivityLog.Infrastructure.Repositories
 		public async Task<IEnumerable<Transaction>> GetTransactionByDate(string user, DateTime date)
 		{
 			return await _context.Transaction!.Where(t => t.UserId == user &&
-												t.Date.Month == date.Month &&
-												t.Date.Year == date.Year &&
+												t.Date.DayOfYear == date.DayOfYear &&
 												t.IsDeleted == false).ToListAsync();
 		}
 

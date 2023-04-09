@@ -22,13 +22,8 @@ namespace ActivityLog.Application.Features.Transaction.Commands.CreateTransactio
 				.GreaterThan(0).WithMessage("{CategoryId} El valor debe ser mayor que cero.");
 
 			RuleFor(p => p.UserId)
-				.NotEmpty().WithMessage("{UserId} El valor no puede ser nulo o vacío.")
-				.Matches(@"^[a-zA-Z]+$").WithMessage("El valor solo puede contener letras del alfabeto.");
-
-			RuleFor(p => p.BugetId)
-				.NotEmpty().WithMessage("{BugetId} no puede estar vacio")
-				.NotNull().WithMessage("{BugetId} no puede ser null")
-				.GreaterThan(0).WithMessage("{BugetId} El valor debe ser mayor que cero.");
+				.NotEmpty().WithMessage("{UserId} El valor no puede ser nulo o vacío.");
+				//.Matches(@"^[a-zA-Z]+$").WithMessage("El valor solo puede contener letras del alfabeto.");
 
 			RuleFor(p => p.Amount)
 				.NotEmpty().WithMessage("{Amount} El valor no puede ser nulo o vacío.")
