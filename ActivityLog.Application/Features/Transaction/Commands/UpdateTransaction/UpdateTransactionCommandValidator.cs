@@ -2,9 +2,9 @@
 
 namespace ActivityLog.Application.Features.Transaction.Commands.UpdateTransaction
 {
-	public class UpdateTransacionCommandValidator : AbstractValidator<UpdateTransacionCommand>
+	public class UpdateTransactionCommandValidator : AbstractValidator<UpdateTransactionCommand>
 	{
-		public UpdateTransacionCommandValidator()
+		public UpdateTransactionCommandValidator()
 		{
 
 			RuleFor(p => p.Id)

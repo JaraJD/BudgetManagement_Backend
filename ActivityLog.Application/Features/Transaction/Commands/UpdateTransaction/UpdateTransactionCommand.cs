@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ActivityLog.Application.Features.Transaction.Commands.UpdateTransaction
 {
-	public class UpdateTransacionCommand : IRequest<string>
+	public class UpdateTransactionCommand : IRequest<string>
 	{
 		public int Id { get; set; }
 		public DateTime Date { get; set; }
