@@ -13,6 +13,6 @@ namespace ActivityLog.Application.Features.Budget.Commands.UpdateBudget
 
 		public decimal Balance { get; set; }
 
-		public string State { get; set;}
+		public string? State { get; set;}
 	}
 }

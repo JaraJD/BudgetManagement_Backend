@@ -13,6 +13,6 @@ namespace ActivityLog.Application.Features.Budget.Commands.CreateBudget
 
 		public decimal? Balance { get; set; }
 
-		public string State = string.Empty;
+		public string State { get; set; } = string.Empty;
 	}
 }

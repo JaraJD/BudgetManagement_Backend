@@ -7,6 +7,7 @@ namespace ActivityLog.Infrastructure.Repositories
 {
 	public class BudgetRepository : RepositoryBase<Budget>, IBudgetRepository
 	{
+		static HttpClient client = new HttpClient();
 		public BudgetRepository(ActivityLogDbContext context) : base(context)
 		{
 
@@ -33,6 +34,14 @@ namespace ActivityLog.Infrastructure.Repositories
 		public async Task<IEnumerable<Budget>> GetBudgetByUser(string user)
 		{
 			return await _context.Budget!.Where(t => t.IdUser == user && t.IsDeleted == false).ToListAsync();
+		}
+
+		public async Task<string> SetMonthlyTotalBudget(Budget budget)
+		{
+			_context.Set<Budget>().Attach(budget);
+			_context.Entry(budget).State = EntityState.Modified;
+			await _context.SaveChangesAsync();
+			return "Updated";
 		}
 	}
 }

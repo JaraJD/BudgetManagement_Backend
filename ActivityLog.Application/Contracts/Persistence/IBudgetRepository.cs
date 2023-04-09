@@ -1,4 +1,5 @@
-﻿using ActivityLog.Domain.Entities;
+﻿using ActivityLog.Application.Features.Budget.Commands.SetTotalBudget;
+using ActivityLog.Domain.Entities;
 
 namespace ActivityLog.Application.Contracts.Persistence
 {
@@ -8,5 +9,6 @@ namespace ActivityLog.Application.Contracts.Persistence
 		Task<IEnumerable<Budget>> GetBudgetByDate(string user, DateTime date);
 		Task<IEnumerable<Budget>> GetBudgetByName(string user, string name);
 		Task<IEnumerable<Budget>> GetBudgetByState(string user, string state);
+		Task<string> SetMonthlyTotalBudget(Budget budget);
 	}
 }

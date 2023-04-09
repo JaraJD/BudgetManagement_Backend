@@ -1,5 +1,6 @@
 ﻿using ActivityLog.Application.Features.Budget.Commands.CreateBudget;
 using ActivityLog.Application.Features.Budget.Commands.DeleteBudget;
+using ActivityLog.Application.Features.Budget.Commands.SetTotalBudget;
 using ActivityLog.Application.Features.Budget.Commands.UpdateBudget;
 using ActivityLog.Application.Features.Budget.Queries.Common;
 using ActivityLog.Application.Features.Budget.Queries.GetBudgetDate;
@@ -31,7 +32,7 @@ namespace ActivityLog.API.Controllers
 			return await _mediator.Send(command);
 		}
 
-		[HttpDelete("{id}", Name = "DeleteBudget")]
+		[HttpDelete("Delete/{id}", Name = "DeleteBudget")]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType((int)HttpStatusCode.OK)]
 		public async Task<ActionResult<string>> DeleteBudget(int id)
@@ -51,7 +52,7 @@ namespace ActivityLog.API.Controllers
 		}
 
 
-		[HttpGet("{idUser}/{date}", Name = "GetBudgetDate")]
+		[HttpGet("Dates/{idUser}/{date}", Name = "GetBudgetDate")]
 		[ProducesResponseType(typeof(IEnumerable<BudgetVm>), (int)HttpStatusCode.OK)]
 		public async Task<ActionResult<IEnumerable<BudgetVm>>> GetBudgetByDate(string idUser, DateTime date)
 		{
@@ -61,7 +62,7 @@ namespace ActivityLog.API.Controllers
 		}
 
 
-		[HttpGet("{idUser}/{name}", Name = "GetBudgetName")]
+		[HttpGet("Name/{idUser}/{name}", Name = "GetBudgetName")]
 		[ProducesResponseType(typeof(IEnumerable<BudgetVm>), (int)HttpStatusCode.OK)]
 		public async Task<ActionResult<IEnumerable<BudgetVm>>> GetBudgetByName(string idUser, string name)
 		{
@@ -71,7 +72,7 @@ namespace ActivityLog.API.Controllers
 		}
 
 
-		[HttpGet("{idUser}/{state}", Name = "GetBudgetState")]
+		[HttpGet("State/{idUser}/{state}", Name = "GetBudgetState")]
 		[ProducesResponseType(typeof(IEnumerable<BudgetVm>), (int)HttpStatusCode.OK)]
 		public async Task<ActionResult<IEnumerable<BudgetVm>>> GetBudgetBystate(string idUser, string state)
 		{
@@ -88,6 +89,13 @@ namespace ActivityLog.API.Controllers
 			var query = new GetBudgetUserQuery(idUser);
 			var savings = await _mediator.Send(query);
 			return Ok(savings);
+		}
+
+		[HttpPut("SetTotalMonthly", Name = "SetMonthlyTotalBudget")]
+		[ProducesResponseType((int)HttpStatusCode.OK)]
+		public async Task<ActionResult<string>> SetMonthlyTotal([FromBody] SetTotalBudgetCommand command)
+		{
+			return await _mediator.Send(command);
 		}
 	}
 }
