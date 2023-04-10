@@ -21,11 +21,6 @@ namespace UserAuthentication.UseCase.UseCase
 			return await _repository.CreateBalanceAsync(balance);
 		}
 
-		public Task<string> DeductBalance(SetBalanceCommand balance)
-		{
-			throw new NotImplementedException();
-		}
-
 		public async Task<string> DeleteBalance(DeleteBalanceCommand balance)
 		{
 			return await _repository.DeleteBalanceAsync(balance);
@@ -51,9 +46,9 @@ namespace UserAuthentication.UseCase.UseCase
 			return _repository.UpdateBalanceAsync(balance);
 		}
 
-		Task<BalanceEntity> IBalanceUseCase.GetBalanceByUser(GetBalanceByUserId user)
+		public Task<string> DeductBalance(SetBalanceCommand balance)
 		{
-			throw new NotImplementedException();
+			return _repository.DeductBalanceAsync(balance);
 		}
 	}
 }

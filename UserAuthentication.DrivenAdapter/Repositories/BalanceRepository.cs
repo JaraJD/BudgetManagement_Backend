@@ -2,11 +2,6 @@
 using AutoMapper;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UserAuthentication.DrivenAdapter.EntitiesMongo;
 using UserAuthentication.DrivenAdapter.Interfaces;
 using UserAuthentication.Entities.Entities;
@@ -105,9 +100,27 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 			return balanceList;
 		}
 
-		public Task<string> DeductBalanceAsync(SetBalanceCommand balance)
+		public async Task<string> DeductBalanceAsync(SetBalanceCommand balance)
 		{
-			throw new NotImplementedException();
+			var filter = Builders<BalanceMongo>.Filter.And(
+								Builders<BalanceMongo>.Filter.Eq(b => b.BalanceId, balance.BalanceId),
+								Builders<BalanceMongo>.Filter.Eq(b => b.IsDeleted, false));
+
+			var balanceToDeduct = await coleccionBalance.Find(filter).FirstOrDefaultAsync();
+
+			Guard.Against.Null(balanceToDeduct, nameof(balanceToDeduct));
+
+			if(balanceToDeduct.Amount <= 0 || balanceToDeduct.Amount < balance.Value)
+			{
+				balanceToDeduct.Amount = 0;
+				return "Amount greater than the balance";
+			}
+
+			balanceToDeduct.Amount -= balance.Value;
+
+			var updateResult = await coleccionBalance.ReplaceOneAsync(filter, balanceToDeduct);
+
+			return "Balance Set";
 		}
 	}
 }

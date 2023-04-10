@@ -14,7 +14,5 @@ namespace UserAuthentication.Entities.Features.User.Commands
 		public string? Name { get; set; }
 
 		public string? Email { get; set; }
-
-		public string? FireBaseId { get; set; }
 	}
 }
