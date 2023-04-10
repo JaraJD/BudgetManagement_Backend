@@ -120,7 +120,7 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 
 			var updateResult = await coleccionBalance.ReplaceOneAsync(filter, balanceToDeduct);
 
-			return "Balance Set";
+			return "Balance Deduct";
 		}
 	}
 }
