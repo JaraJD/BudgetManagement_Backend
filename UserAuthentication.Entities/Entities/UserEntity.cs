@@ -18,7 +18,5 @@ namespace UserAuthentication.Entities.Entities
 		public string? FireBaseId { get; set; }
 
 		public bool IsDeleted { get; set; }
-
-		public virtual BalanceEntity? Balance { get; set; }
 	}
 }
