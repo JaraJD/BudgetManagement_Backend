@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\UserAuthentication.DrivenAdapter\UserAuthentication.DrivenAdapter.csproj" />
+    <ProjectReference Include="..\UserAuthentication.Entities\UserAuthentication.Entities.csproj" />
+    <ProjectReference Include="..\UserAuthentication.UseCase\UserAuthentication.UseCase.csproj" />
   </ItemGroup>
 
 </Project>

@@ -17,6 +17,8 @@ namespace UserAuthentication.UseCase.Gateway
 
 		Task<string> SetBalance(SetBalanceCommand balance);
 
+		Task<string> DeductBalance(SetBalanceCommand balance);
+
 		Task<BalanceEntity> GetBalanceByUser(GetBalanceByUserId user);
 	}
 }

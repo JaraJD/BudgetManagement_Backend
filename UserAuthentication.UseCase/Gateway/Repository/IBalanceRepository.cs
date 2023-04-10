@@ -18,6 +18,8 @@ namespace UserAuthentication.UseCase.Gateway.Repository
 
 		Task<string> SetBalanceAsync(SetBalanceCommand balance);
 
-		Task<BalanceEntity> GetBalanceByUserAsync(GetBalanceByUserId balance);
+		Task<string> DeductBalanceAsync(SetBalanceCommand balance);
+
+		Task<List<BalanceEntity>> GetBalanceByUserAsync(GetBalanceByUserId balance);
 	}
 }
