@@ -18,22 +18,22 @@ namespace ActivityLog.Infrastructure.Repositories
 			return await _context.Budget!.Where(t => t.IdUser == user &&
 												t.TargetMonth.Month == date.Month &&
 												t.TargetMonth.Year == date.Year &&
-												t.IsDeleted == false).ToListAsync();
+												t.IsDeleted == false).Include(r => r.BudgetExpense).ThenInclude(c => c.Category).ToListAsync();
 		}
 
 		public async Task<IEnumerable<Budget>> GetBudgetByName(string user, string name)
 		{
-			return await _context.Budget!.Where(t => t.IdUser == user && t.Name == name && t.IsDeleted == false).ToListAsync();
+			return await _context.Budget!.Where(t => t.IdUser == user && t.Name == name && t.IsDeleted == false).Include(r => r.BudgetExpense).ThenInclude(c => c.Category).ToListAsync();
 		}
 
 		public async Task<IEnumerable<Budget>> GetBudgetByState(string user, string state)
 		{
-			return await _context.Budget!.Where(t => t.IdUser == user && t.State == state && t.IsDeleted == false).ToListAsync();
+			return await _context.Budget!.Where(t => t.IdUser == user && t.State == state && t.IsDeleted == false).Include(r => r.BudgetExpense).ThenInclude(c => c.Category).ToListAsync();
 		}
 
 		public async Task<IEnumerable<Budget>> GetBudgetByUser(string user)
 		{
-			return await _context.Budget!.Where(t => t.IdUser == user && t.IsDeleted == false).ToListAsync();
+			return await _context.Budget!.Where(t => t.IdUser == user && t.IsDeleted == false).Include(r => r.BudgetExpense).ThenInclude(c => c.Category).ToListAsync();
 		}
 
 		public async Task<string> SetMonthlyTotalBudget(Budget budget)

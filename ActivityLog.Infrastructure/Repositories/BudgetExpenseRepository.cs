@@ -14,7 +14,7 @@ namespace ActivityLog.Infrastructure.Repositories
 
 		public async Task<IEnumerable<BudgetExpense>> GetBudgetExpenseByBudget(int budgetId)
 		{
-			return await _context.Budget_Expense!.Where(t => t.BudgetId == budgetId && t.IsDeleted == false).ToListAsync();
+			return await _context.Budget_Expense!.Where(t => t.BudgetId == budgetId && t.IsDeleted == false).Include(r => r.Category).ToListAsync();
 		}
 	}
 }

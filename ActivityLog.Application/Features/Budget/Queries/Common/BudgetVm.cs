@@ -1,4 +1,5 @@
-﻿using ActivityLog.Domain.Entities;
+﻿using ActivityLog.Application.Features.BudgetExpense.Queries.Common;
+using ActivityLog.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,6 @@ namespace ActivityLog.Application.Features.Budget.Queries.Common
 
 		public string? State { get; set; }
 
-		public virtual List<Domain.Entities.BudgetExpense>? BudgetExpense { get; set; }
+		public virtual List<BudgetExpenseVm>? BudgetExpense { get; set; }
 	}
 }
