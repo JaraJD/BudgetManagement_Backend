@@ -88,10 +88,10 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 			return "Balance Set";
 		}
 
-		public async Task<List<BalanceEntity>> GetBalanceByUserAsync(GetBalanceByUserId balance)
+		public async Task<List<BalanceEntity>> GetBalanceByUserAsync(string balance)
 		{
 			var filter = Builders<BalanceMongo>.Filter.And(
-								Builders<BalanceMongo>.Filter.Eq(b => b.UserId, balance.UserId),
+								Builders<BalanceMongo>.Filter.Eq(b => b.UserId, balance),
 								Builders<BalanceMongo>.Filter.Eq(b => b.IsDeleted, false));
 
 			var balances = await coleccionBalance.FindAsync(filter);

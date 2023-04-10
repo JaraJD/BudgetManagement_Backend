@@ -12,6 +12,6 @@ namespace UserAuthentication.UseCase.Gateway.Repository
 
 		Task<string> DeleteUserAsync(DeleteUserCommand user);
 
-		Task<UserEntity> GetUserByFireBaseIdAsync(GetUserByFireBaseIdQuery fireBaseId);
+		Task<UserEntity> GetUserByFireBaseIdAsync(string fireBaseId);
 	}
 }

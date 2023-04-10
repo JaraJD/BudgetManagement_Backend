@@ -25,7 +25,7 @@ namespace UserAuthentication.UseCase.UseCase
 			return await _repository.DeleteUserAsync(user);
 		}
 
-		public async Task<UserEntity> GetUserByFireBaseId(GetUserByFireBaseIdQuery fireBaseId)
+		public async Task<UserEntity> GetUserByFireBaseId(string fireBaseId)
 		{
 			return await _repository.GetUserByFireBaseIdAsync(fireBaseId);
 		}

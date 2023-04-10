@@ -1,4 +1,4 @@
-﻿using Bank.AppService.Wrappers;
+﻿using UserAuthentication.AppService.Wrappers;
 using System.Net;
 using System.Text.Json;
 

@@ -2,7 +2,7 @@
 
 namespace UserAuthentication.Entities.Features.Balance.Queries
 {
-	public class GetBalanceByUserId
+	public class GetBalanceByUserIdQuery
 	{
 		public string UserId { get; set; }
 	}

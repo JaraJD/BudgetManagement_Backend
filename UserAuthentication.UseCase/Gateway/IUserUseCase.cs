@@ -13,6 +13,6 @@ namespace UserAuthentication.UseCase.Gateway
 
 		Task<string> DeleteUser(DeleteUserCommand user);
 
-		Task<UserEntity> GetUserByFireBaseId(GetUserByFireBaseIdQuery fireBaseId);
+		Task<UserEntity> GetUserByFireBaseId(string fireBaseId);
 	}
 }

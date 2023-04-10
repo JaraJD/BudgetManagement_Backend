@@ -1,9 +1,10 @@
 ﻿using MongoDB.Driver;
 using UserAuthentication.DrivenAdapter.EntitiesMongo;
+using UserAuthentication.DrivenAdapter.Interfaces;
 
 namespace UserAuthentication.DrivenAdapter
 {
-	public class Context
+	public class Context : IContext
 	{
 		private readonly IMongoDatabase _database;
 

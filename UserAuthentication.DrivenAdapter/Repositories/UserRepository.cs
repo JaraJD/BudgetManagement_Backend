@@ -47,10 +47,10 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 			return "User Eliminated";
 		}
 
-		public async Task<UserEntity> GetUserByFireBaseIdAsync(GetUserByFireBaseIdQuery fireBaseId)
+		public async Task<UserEntity> GetUserByFireBaseIdAsync(string fireBaseId)
 		{
 			var filter = Builders<UserMongo>.Filter.And(
-								Builders<UserMongo>.Filter.Eq(u => u.FireBaseId, fireBaseId.FireBaseId),
+								Builders<UserMongo>.Filter.Eq(u => u.FireBaseId, fireBaseId),
 								Builders<UserMongo>.Filter.Eq(b => b.IsDeleted, false));
 
 

@@ -26,7 +26,7 @@ namespace UserAuthentication.UseCase.UseCase
 			return await _repository.DeleteBalanceAsync(balance);
 		}
 
-		public async Task<List<BalanceEntity>> GetBalanceByUser(GetBalanceByUserId user)
+		public async Task<List<BalanceEntity>> GetBalanceByUser(string user)
 		{
 			return await _repository.GetBalanceByUserAsync(user);
 		}
