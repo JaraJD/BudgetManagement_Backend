@@ -1,5 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 using AutoMapper;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using UserAuthentication.DrivenAdapter.EntitiesMongo;
 using UserAuthentication.DrivenAdapter.Interfaces;
@@ -31,7 +32,7 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 			var userToCreate = _mapper.Map<UserMongo>(user);
 			userToCreate.IsDeleted = false;
 			await coleccionUser.InsertOneAsync(userToCreate);
-			return "User Created";
+			return "User Created".ToJson();
 		}
 
 		public async Task<string> DeleteUserAsync(DeleteUserCommand user)
@@ -44,7 +45,7 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 			userToDelete.IsDeleted = true;
 			var updateResult = await coleccionUser.ReplaceOneAsync(filter, userToDelete);
 
-			return "User Eliminated";
+			return "User Eliminated".ToJson();
 		}
 
 		public async Task<UserEntity> GetUserByFireBaseIdAsync(string fireBaseId)
@@ -67,7 +68,7 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 			var update = Builders<UserMongo>.Update.Set(u => u.Name, user.Name).Set(u => u.Email, user.Email);
 			var result = await coleccionUser.UpdateOneAsync(filter, update);
 
-			return "User Updated";
+			return "User Updated".ToJson();
 		}
 	}
 }
