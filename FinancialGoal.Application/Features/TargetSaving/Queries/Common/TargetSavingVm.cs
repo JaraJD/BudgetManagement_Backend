@@ -8,7 +8,8 @@ namespace FinancialGoal.Application.Features.TargetSaving.Queries.Common
 {
     public class TargetSavingVm
     {
-        public DateTime StartDate { get; set; }
+		public int Id { get; set; }
+		public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
 

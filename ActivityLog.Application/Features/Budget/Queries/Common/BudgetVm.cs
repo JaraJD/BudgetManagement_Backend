@@ -10,6 +10,7 @@ namespace ActivityLog.Application.Features.Budget.Queries.Common
 {
 	public class BudgetVm
 	{
+		public int Id { get; set; }
 		public string? Name { get; set; }
 
 		public DateTime TargetMonth { get; set; }
