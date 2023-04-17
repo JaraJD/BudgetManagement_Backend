@@ -1,6 +1,7 @@
 ﻿using ActivityLog.Application.Contracts.Persistence;
 using AutoMapper;
 using MediatR;
+using System.Text.Json;
 
 namespace ActivityLog.Application.Features.Transaction.Commands.CreateTransaction
 {
@@ -20,7 +21,7 @@ namespace ActivityLog.Application.Features.Transaction.Commands.CreateTransactio
 			var transactionToCreate = _mapper.Map<Domain.Entities.Transaction>(request);
 			var result = await _transactionRepository.CreateAsync(transactionToCreate);
 
-			return $"Transaction {result.Id} created";
+			return JsonSerializer.Serialize($"Transaction {result.Id} created");
 		}
 	}
 }

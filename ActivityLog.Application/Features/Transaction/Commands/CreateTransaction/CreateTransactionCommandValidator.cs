@@ -13,8 +13,7 @@ namespace ActivityLog.Application.Features.Transaction.Commands.CreateTransactio
 		{
 			RuleFor(p => p.Date)
 				.NotEmpty().WithMessage("La fecha no puede ser nula o vacía.")
-				.Must(x => x > DateTime.MinValue && x < DateTime.MaxValue).WithMessage("La fecha debe estar dentro del rango permitido.")
-				.LessThanOrEqualTo(DateTime.Now).WithMessage("La fecha no puede ser posterior a la fecha actual.");
+				.Must(x => x > DateTime.MinValue && x < DateTime.MaxValue).WithMessage("La fecha debe estar dentro del rango permitido.");
 
 			RuleFor(p => p.CategoryId)
 				.NotEmpty().WithMessage("{CategoryId} no puede estar vacio")
