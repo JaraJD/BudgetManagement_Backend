@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace ActivityLog.Application.Features.Transaction.Commands.DeleteTransaction
@@ -28,7 +29,7 @@ namespace ActivityLog.Application.Features.Transaction.Commands.DeleteTransactio
 			transactionToDelete.IsDeleted = true;
 			await _transactionRepository.UpdateAsync(transactionToDelete);
 
-			return $"Transaction {request.Id} Deleted";
+			return JsonSerializer.Serialize($"Transaction {request.Id} Deleted");
 
 
 		}

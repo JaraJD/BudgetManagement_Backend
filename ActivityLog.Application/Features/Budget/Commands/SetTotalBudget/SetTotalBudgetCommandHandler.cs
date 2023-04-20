@@ -1,6 +1,7 @@
 ﻿using ActivityLog.Application.Contracts.Persistence;
 using AutoMapper;
 using MediatR;
+using System.Text.Json;
 
 namespace ActivityLog.Application.Features.Budget.Commands.SetTotalBudget
 {
@@ -22,10 +23,18 @@ namespace ActivityLog.Application.Features.Budget.Commands.SetTotalBudget
 			{
 				throw new ArgumentNullException(nameof(budgetToSet));
 			}
-			budgetToSet.MonthlyTotal += request.Amount;
+			var validation = budgetToSet.MonthlyTotal + request.Amount;
+			if (validation < 0)
+			{
+				budgetToSet.MonthlyTotal = 0;
+			}
+			else
+			{
+				budgetToSet.MonthlyTotal += request.Amount;
+			}
 			await _budgetRepository.SetMonthlyTotalBudget(budgetToSet);
 
-			return $"Monthly Total Updated";
+			return JsonSerializer.Serialize($"Monthly Total Updated");
 		}
 	}
 }

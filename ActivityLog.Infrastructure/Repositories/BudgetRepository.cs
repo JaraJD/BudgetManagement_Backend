@@ -2,6 +2,7 @@
 using ActivityLog.Domain.Entities;
 using ActivityLog.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace ActivityLog.Infrastructure.Repositories
 {

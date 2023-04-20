@@ -1,6 +1,7 @@
 ﻿using ActivityLog.Application.Contracts.Persistence;
 using AutoMapper;
 using MediatR;
+using System.Text.Json;
 
 namespace ActivityLog.Application.Features.Transaction.Commands.UpdateTransaction
 {
@@ -26,7 +27,7 @@ namespace ActivityLog.Application.Features.Transaction.Commands.UpdateTransactio
 
 			await _transactionRepository.UpdateAsync(transactionToUpdate);
 
-			return $"Transaction {request.Id} Updated";
+			return JsonSerializer.Serialize($"Transaction {request.Id} Updated");
 		}
 	}
 }

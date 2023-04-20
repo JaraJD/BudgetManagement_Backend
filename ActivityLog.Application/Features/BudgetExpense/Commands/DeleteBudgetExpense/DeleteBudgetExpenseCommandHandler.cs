@@ -1,5 +1,6 @@
 ﻿using ActivityLog.Application.Contracts.Persistence;
 using MediatR;
+using System.Text.Json;
 
 namespace ActivityLog.Application.Features.BudgetExpense.Commands.DeleteBudgetExpense
 {
@@ -23,7 +24,7 @@ namespace ActivityLog.Application.Features.BudgetExpense.Commands.DeleteBudgetEx
 			budgetExpenseToDelete.IsDeleted = true;
 			await _budgetExpenseRepository.UpdateAsync(budgetExpenseToDelete);
 
-			return $"Budget Expense {request.Id} Deleted";
+			return JsonSerializer.Serialize($"Budget Expense {request.Id} Deleted");
 		}
 	}
 }

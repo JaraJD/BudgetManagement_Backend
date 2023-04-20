@@ -1,6 +1,7 @@
 ﻿using ActivityLog.Application.Contracts.Persistence;
 using AutoMapper;
 using MediatR;
+using System.Text.Json;
 
 namespace ActivityLog.Application.Features.BudgetExpense.Commands.UpdateBudgetExpense
 {
@@ -27,7 +28,7 @@ namespace ActivityLog.Application.Features.BudgetExpense.Commands.UpdateBudgetEx
 
 			await _BudgetExpenseRepository.UpdateAsync(budgetExpenseToUpdate);
 
-			return $"Budget Expense {request.Id} Updated";
+			return JsonSerializer.Serialize($"Budget Expense {request.Id} Updated");
 		}
 	}
 }

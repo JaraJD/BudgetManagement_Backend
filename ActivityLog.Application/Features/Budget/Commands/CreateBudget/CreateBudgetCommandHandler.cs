@@ -1,6 +1,7 @@
 ﻿using ActivityLog.Application.Contracts.Persistence;
 using AutoMapper;
 using MediatR;
+using System.Text.Json;
 
 namespace ActivityLog.Application.Features.Budget.Commands.CreateBudget
 {
@@ -20,7 +21,7 @@ namespace ActivityLog.Application.Features.Budget.Commands.CreateBudget
 			var budgetToCreate = _mapper.Map<Domain.Entities.Budget>(request);
 			var result = await _budgetRepository.CreateAsync(budgetToCreate);
 
-			return $"Budget {result.Id} Created";
+			return JsonSerializer.Serialize($"Budget {result.Id} Created");
 		}
 	}
 }

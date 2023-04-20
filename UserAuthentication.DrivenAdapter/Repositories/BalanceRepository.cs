@@ -32,7 +32,7 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 			var balanceToCreate = _mapper.Map<BalanceMongo>(balance);
 			balanceToCreate.IsDeleted = false;
 			await coleccionBalance.InsertOneAsync(balanceToCreate);
-			return "Balance Created";
+			return "Balance Created".ToJson();
 		}
 
 		public async Task<string> UpdateBalanceAsync(UpdateBalanceCommand balance)
@@ -43,7 +43,7 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 			var update = Builders<BalanceMongo>.Update.Set(b => b.Name, balance.Name);
 			var result = await coleccionBalance.UpdateOneAsync(filter, update);
 
-			return "Balance Updated";
+			return "Balance Updated".ToJson();
 		}
 
 		public async Task<string> DeleteBalanceAsync(DeleteBalanceCommand balance)
@@ -56,7 +56,7 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 			balanceToDelete.IsDeleted = true;
 			var updateResult = await coleccionBalance.ReplaceOneAsync(filter, balanceToDelete);
 
-			return "Balance Eliminated";
+			return "Balance Eliminated".ToJson();
 		}
 
 		public async Task<string> ResetBalanceAsync(ResetBalanceCommand balance)
@@ -69,7 +69,7 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 			balanceToReset.Amount = 0;
 			var updateResult = await coleccionBalance.ReplaceOneAsync(filter, balanceToReset);
 
-			return "Balance Reset";
+			return "Balance Reset".ToJson();
 		}
 
 		public async Task<string> SetBalanceAsync(SetBalanceCommand balance)
@@ -85,7 +85,7 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 			balanceToSet.Amount += balance.Value;
 			var updateResult = await coleccionBalance.ReplaceOneAsync(filter, balanceToSet);
 
-			return "Balance Set";
+			return "Balance Set".ToJson();
 		}
 
 		public async Task<List<BalanceEntity>> GetBalanceByUserAsync(string balance)
@@ -113,14 +113,14 @@ namespace UserAuthentication.DrivenAdapter.Repositories
 			if(balanceToDeduct.Amount <= 0 || balanceToDeduct.Amount < balance.Value)
 			{
 				balanceToDeduct.Amount = 0;
-				return "Amount greater than the balance";
+				return "Amount greater than the balance".ToJson();
 			}
 
 			balanceToDeduct.Amount -= balance.Value;
 
 			var updateResult = await coleccionBalance.ReplaceOneAsync(filter, balanceToDeduct);
 
-			return "Balance Deduct";
+			return "Balance Deduct".ToJson();
 		}
 	}
 }
